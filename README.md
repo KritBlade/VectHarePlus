@@ -545,7 +545,7 @@ Restart SillyTavern.
 2. Choose your vector storage (Standard or Qdrant).
 3. Select your embedding provider (Transformers, vLLM, Ollama, OpenRouter, etc.).
 
-   - 💡 **Recommended:** use `qwen/qwen3-embedding-8b` through **OpenRouter**. It's extremely cheap ($0.00000015/run), multilingual (excellent CJK + Latin), and produces high-quality dense vectors for the corpus size VectFox targets. The better embedding model you use, the better result you will receive from recall, this is the most important model that you do NOT want to use cheap model.
+   - 💡 **Recommended:** use `baai/bge-m3` or `qwen/qwen3-embedding-8b` through **OpenRouter**. It's extremely cheap ($0.00000015/run), multilingual (excellent CJK + Latin), and produces high-quality dense vectors for the corpus size VectFox targets. The better embedding model you use, the better result you will receive from recall, this is the most important model that you do NOT want to use cheap model.
 4. Select your Summarization LLM (OpenRouter or vLLM) — used by EventBase extraction during vectorization.
 
    - 💡 **Recommended OpenRouter models:** for a cheap & fast extraction path, use `openai/gpt-4o-mini` or `google/gemini-3.1-flash-lite` — both keep cost and ingestion latency low. If you want higher extraction quality and don't mind paying more, `x-ai/grok-4.3` is a stronger but more expensive option. Avoid older model IDs such as `x-ai/grok-4.1-fast` if OpenRouter returns a 404/deprecation error; model availability changes over time, so verify the exact ID on OpenRouter before long ingestion runs. The same recommendation applies to the **Agent Mode LLM** (configured separately in the AgentMode tab) — if you leave the AgentMode model field blank it inherits this summarizer setting.
